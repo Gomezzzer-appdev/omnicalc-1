@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::Base
      def blank_square_form
 
-      @num = params.fetch("elephant")
-      
+    
       render({ :template => "calculation_templates/square_form.html.erb"})
      end
 
      def calculate_square
+
+      @num = params.fetch("elephant").to_f
+
+      @square_of_num = @num ** 2
 
         render({ :template => "calculation_templates/square_results.html.erb"})
      end
