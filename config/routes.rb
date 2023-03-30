@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get("/random/new", { :controller => "application", :action => "calculate_random" })
 
+  get("/square_root/new", { :controller => "application", :action => "calculate_square_root" })
+
+  get("/payment/new", { :controller => "application", :action => "calculate_payment" })
+
   #Write your routes above this line
   # ================================
 
