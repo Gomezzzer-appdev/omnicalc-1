@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
   get("/payment/new", { :controller => "application", :action => "calculate_payment" })
 
-  get("/payment/results", { :controller => "application", :action => "calculate_payment" })
+  get("/payment/results", { :controller => "application", :action => "payment_results" })
 
   #Write your routes above this line
   # ================================
 
 end
+  
