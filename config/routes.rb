@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   get("/square_root/new", { :controller => "application", :action => "calculate_square_root" })
 
+  get("/square_root/results", { :controller => "application", :action => "blank_square_root" })
+
   get("/payment/new", { :controller => "application", :action => "calculate_payment" })
+
+  get("/payment/results", { :controller => "application", :action => "calculate_payment" })
 
   #Write your routes above this line
   # ================================

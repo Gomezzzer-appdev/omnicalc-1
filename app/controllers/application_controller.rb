@@ -24,16 +24,16 @@ class ApplicationController < ActionController::Base
 
      def calculate_square_root
 
-     # @num = params.fetch("elephant").to_f
-
-     # @square_root_results = Math.sqrt(@num).to_f
-     
-
-        render({ :template => "calculation_templates/square_root_results.html.erb"})
+    #   @num = params.fetch("flamingo").to_f
+    #   @square_root_of_num = Math.sqrt(@num) 
+      render({ :template => "calculation_templates/square_root.html.erb"})
      end
+
+
 
      def calculate_payment
 
+      
      render({ :template => "calculation_templates/calculate_payment.html.erb"})
     end
 end
