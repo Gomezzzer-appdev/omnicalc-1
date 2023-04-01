@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-
+ 
   get("/square/new", { :controller => "application", :action => "blank_square_form" })
 
   get("/square/results", { :controller => "application", :action => "calculate_square" })
 
   get("/random/new", { :controller => "application", :action => "calculate_random" })
+
+  get("random/results", { :controller => "application", :action => "rand_results" })
 
   get("/square_root/new", { :controller => "application", :action => "calculate_square_root" })
 
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
 
   #Write your routes above this line
   # ================================
+
+  devise_for :admin_users, ActiveAdmin::Device
+  ActiveAdmin.routes(self)
 
 end
   
