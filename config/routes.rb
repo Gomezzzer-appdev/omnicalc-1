@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   #Write your routes above this line
   # ================================
 
-  devise_for :admin_users, ActiveAdmin::Device
-  ActiveAdmin.routes(self)
+ # devise_for :admin_users, ActiveAdmin::Device
+ # ActiveAdmin.routes(self)
 
 end
   
