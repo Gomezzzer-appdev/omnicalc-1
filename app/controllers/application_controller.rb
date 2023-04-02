@@ -15,21 +15,31 @@ class ApplicationController < ActionController::Base
         render({ :template => "calculation_templates/square_results.html.erb"})
      end
 
+     def random_form
+
+      render({ :template => "calculation_templates/random_form.html.erb"})
+     end
+
      def calculate_random
 
-     #    @lower = params.fetch("user_min").to_f 
-     #    @upper = params.fetch("user_max").to_f 
-     #    @result = rand(@lower..@upper)
-       render({ :template => "calculation_templates/calculate_rand.html.erb"})
+         @lower = params.fetch("user_min").to_f 
+         @upper = params.fetch("user_max").to_f 
+         @result = rand(@lower..@upper)
+       render({ :template => "calculation_templates/calculate_results.html.erb"})
      end
+
+    def blank_square_root
+    
+     
+    render({ :template => "calculation_templates/square_root_results.html.erb"})
+    end
 
      def calculate_square_root
 
-    #   @num = params.fetch("flamingo").to_f
-    #   @square_root_of_num = Math.sqrt(@num) 
+    #   @num = params.fetch("elephant").to_f
+    #   @square_root_of_num = Math.sqrt(@num).to_f 
       render({ :template => "calculation_templates/square_root.html.erb"})
      end
-
 
 
      def calculate_payment
@@ -42,4 +52,4 @@ class ApplicationController < ActionController::Base
     
       render({ :template => "calculation_templates/payment_results.html.erb"})
     end
-end
+  end
