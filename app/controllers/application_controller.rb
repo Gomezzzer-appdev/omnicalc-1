@@ -42,32 +42,38 @@ class ApplicationController < ActionController::Base
      end
 
 
-     def calculate_payment
-      
+     def calculate_payment_form
+   
       
       
      render({ :template => "calculation_templates/calculate_payment.html.erb"})
     end
 
-    def payment_results
+    def calculate_payment_results
 
-       # Extract the form data
-  apr = params[:apr].to_f
- # num_years = params[:num_years].to_i
-  principal = params[:principal].to_f
-  
-  # Convert APR to a monthly interest rate
- # r = apr / 12 / 100
-  
-  # Calculate the number of payments
- # n = num_years * 1..2
-  
-  # Calculate the payment using the formula
- # p = r * principal / (1 - (1 + r)**-n)
-  
-  # Render the results in the HTML template
-  
 
+      apr = params[:apr].to_f / 100.0 / 12.0 # Convert to monthly rate
+      num_years = params[:num_years].to_i
+      principal = params[:principal].to_f
+
+     
+  
+      # Calculate the payment using the formula
+      num_periods = num_years * 12
+      numerator = apr * principal
+      denominator = 1 - (1 + apr)**(-num_periods)
+      payment = numerator / denominator
+  
+      # Save the results as instance variables for the view
+      @apr = params[:apr].to_f
+      @num_years = num_years
+      @principal = principal
+      @payment = payment.round(2)
+
+      @apr_formatted = @apr.to_s(:percentage, { :precision => 4 } )
+    
+   
+  
       render({ :template => "calculation_templates/payment_results.html.erb"})
-    end
+    end 
   end
